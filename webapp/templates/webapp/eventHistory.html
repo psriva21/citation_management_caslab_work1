@@ -1,0 +1,134 @@
+<html>
+<head>
+  <title>CASI Event History</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  {% load static %} 
+        <script src="{% static 'webapp/js/helper.js' %}"></script>  
+        
+  {% load static %} 
+        <script src="{% static 'webapp/js/event_history_helper.js' %}"></script>  
+
+  {% load static %} 
+  <script> 
+    $(function(){
+      $("#header_links").load("links"); 
+    });
+    </script> 
+
+</head>
+<body class="body_style">
+  <div>
+    <div>
+        {% load static %}
+        <img class="header_img" src="{% static 'webapp/ASU.svg' %}">
+        {% load static %} 
+        <link rel="stylesheet" href="{% static 'webapp/style.css' %}">
+        {% load static %} 
+        <link rel="stylesheet" href="{% static 'webapp/event_history_style.css' %}">
+
+        
+   </div>
+   <div class="float-container"> 
+    <div id="header_links"></div>
+    </div>
+    <div style="padding-left:10px; padding-top:10px ; padding-bottom: 10px;">
+<label style="font-family:sans-serif; font-size:22px;">Event History</label>
+</div>
+<div style="padding-bottom: 20px; padding-left: 10px;">
+  <select style="font-family: sans-serif;width: 200px; height: 31px;" id='select_event'>
+    <option id='event_1'>File Uploads</option>
+    <option id='event_2'>Add/Edit Subscriptions</option>
+    <option id='event_3'>Journal Mail Log</option>
+  </select>
+<input style="font-family: sans-serif;width: 400px; height: 25px;" type="text" placeholder="Search..." name="uname">
+<button style="width: 40px;
+              height: 31px;
+              background: #51BF95;
+              color: white;
+              border-radius: 3px;
+              border: 0px;
+              cursor: pointer;
+              font-weight: bold;
+              font-size: 15px;" type="submit"><i class="fa fa-search"></i></button>
+</div>
+<div style="padding-left: 10px;">
+<table id = 'tbl_file_upload_events'>
+  <tr>
+    <th>Created Date</th>
+    <th>Title </th>
+    <th>Journal</th>
+    <th>Volume</th>
+    <th>Issue</th>
+    <th>Published Date</th>
+    <th>Logged By</th>
+  </tr>
+</table>
+
+<table id='tbl_subscription_events'>
+  <tr>
+    <th>Event Date</th>
+    <th>Journal Name</th>
+    <th>Field Updated</th>
+    <th>Old Value</th>
+    <th>New Value</th>
+    <th>Username</th>
+  </tr>
+</table>
+<table id='tbl_journal_mail_log_events'>
+<tr>
+  <th>Date Uploaded</th>
+  <th>Journal Name</th>
+  <th>Volume</th>
+  <th>Issue</th>
+  <th>Username</th>
+ 
+</tr>
+</table>
+
+</div>
+</body>
+</html>
+
+<script>
+  $(document).ready(function() 
+    {
+      $("#tbl_file_upload_events").show();
+          $("#tbl_subscription_events").hide();
+          $("#tbl_journal_mail_log_events").hide();
+          getFileUploadEventHistory();
+
+      $('#select_event').on('change', function() {
+        if(this.options.selectedIndex==0)
+        {
+          $("#tbl_file_upload_events").show();
+          $("#tbl_subscription_events").hide();
+          $("#tbl_journal_mail_log_events").hide();
+          getFileUploadEventHistory();
+
+        }
+        else if(this.options.selectedIndex==1)
+        {
+          $("#tbl_file_upload_events").hide();
+          $("#tbl_subscription_events").show();
+          $("#tbl_journal_mail_log_events").hide();
+          getSubscriptionChangesEventHistory();
+        }
+        else if (this.options.selectedIndex==2)
+        {
+          $("#tbl_file_upload_events").hide();
+          $("#tbl_subscription_events").hide();
+          $("#tbl_journal_mail_log_events").show();
+          getJournalMailLogEventHistory();
+        }
+        else   //base case, set to 1
+        {
+          $("#tbl_file_upload_events").show();
+          $("#tbl_subscription_events").hide();
+          $("#tbl_journal_mail_log_events").hide();
+          getFileUploadEventHistory();
+        }
+
+      });
+        
+    });
+</script>

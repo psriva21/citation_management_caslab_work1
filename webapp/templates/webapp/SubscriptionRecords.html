@@ -1,0 +1,237 @@
+
+<style>
+    .vl {
+     border-left: 6px solid green;
+     height: 500px;
+   } 
+   </style>
+   <style>
+    .float-container {
+    height: 50px;
+    background-color: #f3f7e6;
+}
+.float-child {
+    padding-left: 20px;
+    float: left;
+    padding-top: 15px;
+    height: 70%;
+    padding-right: 20px;
+    cursor: pointer;
+    
+     
+}  
+.anchor_class{
+  font-family: sans-serif;
+  text-decoration: none;
+  color:#3f3d40;
+  font-weight: bold;
+  
+  
+}
+.float-child:hover{
+  background-color:#98a07b;
+  
+
+}
+.anchor_class:hover
+{
+  color: white;
+}
+.body_style
+{
+  margin: 0px;
+}
+.header_img
+{
+  width: 101%;
+}
+    .sorticon{
+        width: 20px;
+        position: relative;
+        float: right;
+    }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+   <html>
+       <head>
+        <title>CASI Subscriptions</title>
+           <link rel="stylesheet" href="static/style.css">
+           {% load static %} 
+        <script src="{% static 'webapp/js/helper.js' %}"></script>
+         </head>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <body>
+         <div class='topnav'>
+           <img style='width: 100%;'src='static/asu.png'>
+       </div>
+       <div class="topnav">
+           
+           <a style="font-family: sans-serif;" href='logEntry.html' >Log Entry</a>
+           <a style="font-family: sans-serif;" href='findEntry.html'>Find Entry</a>
+           <a style="font-family: sans-serif;" href='subscriptions.html'>Subscriptions</a>
+           <a style="font-family: sans-serif;"href='preferences.html'>Preferences</a>
+           <a style="font-family: sans-serif;" href='eventHistory.html' >Event History</a>
+           <a style="font-family: sans-serif;" href='https://casi.asu.edu/complex-adaptive-systems-initiative/'>About</a>
+          
+          <div style="margin-top: 9px; float: right;padding-right: 10px;">
+           <label style="font-size:17px;color:white; font-family: sans-serif;">Logged in as </label>
+           <label style="font-size:17px;color:white; font-family: sans-serif; padding-right: 5px;">Prateek</label>
+           <i style="font-size:24px;color: white;" class="fa">&#xf2bd;</i>
+          </div>
+     </div>
+     <h2 id='SubscriptionHeader' style="font-family:sans-serif;font-size: 22px;">Subscriptions</h2>
+             <div>
+               
+               
+                   
+                 <div style="padding-top: 10px; padding-bottom: 10px;">  
+                  
+                  <!-- <input id='journals_subscription' onclick="showJournals()" style="width: 100px;
+                  height: 32px;
+                  background: #51BF95;
+                  color: white;
+                  border-radius: 3px;
+                  border: 0px;
+                  cursor: pointer;
+                  font-weight: bold;
+                  font-size: 15px;" type="submit" value="Journals">
+                
+                <input id='personal_subscription' onclick="showPersonal()" style="width: 100px; 
+                height: 32px;              
+                border-radius: 3px;
+                border: 0px;
+                cursor: pointer;
+                font-size: 15px;" type="submit" value="Personal"> -->
+              
+              </div>
+                <div style="padding-bottom: 20px;">
+                <input style="font-family: sans-serif;width: 400px; height: 30px;" type="text" placeholder="Search..." name="uname">
+                <button style="width: 40px;
+                height: 31px;
+                background: #51BF95;
+                color: white;
+                border-radius: 3px;
+                border: 0px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 15px;" type="submit"><i class="fa fa-search"></i></button>
+                
+              <input id='journals_subscription' onclick="window.open('/Users/prateeksrivastava/Documents/casi_prototype/EditJournal.html','popup','width=600,height=600'); return false;" style="width: 150px;
+                  height: 32px;
+                  background: #51BF95;
+                  color: white;
+                  border-radius: 3px;
+                  border: 0px;
+                  cursor: pointer;
+                  font-weight: bold;
+                  font-size: 15px;" type="submit" value="Edit Journal">
+                   <input id='project expenses' onclick="showJournals()" style="width: 150px;
+                   height: 32px;
+                   background: #51BF95;
+                   color: white;
+                   border-radius: 3px;
+                   border: 0px;
+                   cursor: pointer;
+                   font-weight: bold;
+                   font-size: 15px;" type="submit" value="Expense Projection">
+            
+            </div>
+
+                <table id='Journals' style="display: block;">
+                  <tr>
+                    <th><img src='static/sort.png' class="sorticon">Journal</th>
+                    <th><img src='static/sort.png' class="sorticon">Account Number</th>
+                    <th><img src='static/sort.png' class="sorticon">Date Renewed</th>
+                    <th><img src='static/sort.png' class="sorticon">Date Due</th>
+                    <th><img src='static/sort.png' class="sorticon">Total(in $)#</th>
+                    <th><img src='static/sort.png' class="sorticon">Format</th>
+                    
+                    <th><img src='static/sort.png' class="sorticon">Renewal Type</th>
+                    <th><img src='static/sort.png' class="sorticon">Purchase Type</th>
+                    <th><img src='static/sort.png' class="sorticon">PO Number</th>
+                    <th><img src='static/sort.png' class="sorticon">Month</th>
+                    <th><img src='static/sort.png' class="sorticon">Year</th>
+                    <th><img src='static/sort.png' class="sorticon">Date(MMYY)</th>
+                    <th><img src='static/sort.png' class="sorticon">Workday</th>
+                  </tr>
+                  
+                  <tr>	<td>AAAS</td>	<td>1627988</td>	<td>02/07/20</td>	<td>02/01/21</td>	<td>165</td>	<td>Print</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>2</td>	<td>2021</td>	<td>02/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Harvard Business Review</td>	<td></td>	<td>02/10/20</td>	<td>02/01/21</td>	<td>127.56</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>2</td>	<td>2021</td>	<td>02/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Wired</td>	<td>784690992</td>	<td>03/01/20</td>	<td>03/01/21</td>	<td>53.14</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>3</td>	<td>2021</td>	<td>03/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Health Affairs</td>	<td>854530</td>	<td>02/21/20</td>	<td>04/01/21</td>	<td>178</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>4</td>	<td>2021</td>	<td>04/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>JAMA</td>	<td></td>	<td>04/23/20</td>	<td>04/01/21</td>	<td>199</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>4</td>	<td>2021</td>	<td>04/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>NEJM Catalyst</td>	<td></td>	<td>05/29/20</td>	<td>05/01/21</td>	<td>189</td>	<td>Digital</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>5</td>	<td>2021</td>	<td>05/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Lancet Infectious Disease</td>	<td></td>	<td>05/29/20</td>	<td>05/29/21</td>	<td>172</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>5</td>	<td>2021</td>	<td>05/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Lancet Oncology</td>	<td></td>	<td>06/02/20</td>	<td>05/29/21</td>	<td>194</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>5</td>	<td>2021</td>	<td>05/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Pharma Intelligence</td>	<td></td>	<td>06/08/20</td>	<td>06/07/21</td>	<td>11000</td>	<td>Digital</td>	<td>Annual</td>	<td>PO</td>	<td></td>	<td>6</td>	<td>2021</td>	<td>06/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Nature Reviews Cancer</td>	<td>3002537090-5500909584</td>	<td>07/02/20</td>	<td>08/01/21</td>	<td>286.33</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>8</td>	<td>2021</td>	<td>08/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Nautilus</td>	<td>130614</td>	<td>08/20/20</td>	<td>08/01/21</td>	<td>29</td>	<td>Digital</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>8</td>	<td>2021</td>	<td>08/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Nature Reviews Microbiology</td>	<td>3002537090-5500928833</td>	<td>10/02/20</td>	<td>09/01/21</td>	<td>279.85</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>9</td>	<td>2021</td>	<td>09/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Bulletin</td>	<td></td>	<td>10/14/20</td>	<td>09/01/21</td>	<td>59.99</td>	<td>Digital</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>9</td>	<td>2021</td>	<td>09/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>The Economist</td>	<td>3422067</td>	<td>08/18/20</td>	<td>09/11/21</td>	<td>193.41</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>9</td>	<td>2021</td>	<td>09/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>MIT Review</td>	<td>1100014612</td>	<td>09/24/20</td>	<td>09/24/21</td>	<td>80</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>9</td>	<td>2021</td>	<td>09/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>NEJM</td>	<td></td>	<td>08/30/20</td>	<td>10/01/21</td>	<td>189</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>10</td>	<td>2021</td>	<td>10/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Nature Genetics</td>	<td>3002537090-5500919089</td>	<td>11/01/20</td>	<td>10/01/21</td>	<td>243.11</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>10</td>	<td>2021</td>	<td>10/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Nature</td>	<td>3002537090-5500914433</td>	<td>09/03/20</td>	<td>10/04/21</td>	<td>150.19</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>10</td>	<td>2021</td>	<td>10/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>C&EN/ACS</td>	<td>135712</td>	<td>07/01/20</td>	<td>10/23/21</td>	<td>182</td>	<td>Print</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>10</td>	<td>2021</td>	<td>10/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Nature Reviews Genetics</td>	<td>3002537090-5500964310</td>	<td>12/22/20</td>	<td>11/01/21</td>	<td>279.85</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>11</td>	<td>2021</td>	<td>11/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Inside Philosophy </td>	<td></td>	<td>11/06/20</td>	<td>11/06/21</td>	<td>397</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>11</td>	<td>2021</td>	<td>11/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>BioCentury</td>	<td>Arizo-01-01</td>	<td>11/29/20</td>	<td>11/28/21</td>	<td>6700</td>	<td>Digital</td>	<td>Annual</td>	<td> PO</td>	<td></td>	<td>11</td>	<td>2021</td>	<td>11/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>Council on Foreign Relations</td>	<td>C00003720</td>	<td>12/04/20</td>	<td>12/01/21</td>	<td>560</td>	<td></td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>12</td>	<td>2021</td>	<td>12/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>IEEE</td>	<td>41581093</td>	<td>12/18/20</td>	<td>12/01/21</td>	<td>311</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>12</td>	<td>2021</td>	<td>12/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>American Society for Microbiology</td>	<td></td>	<td>12/28/20</td>	<td>12/01/21</td>	<td>392</td>	<td>Digital</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>12</td>	<td>2021</td>	<td>12/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>For the Record</td>	<td></td>	<td>12/29/20</td>	<td>12/01/21</td>	<td>13</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>12</td>	<td>2021</td>	<td>12/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>American Scientist</td>	<td>S061100070</td>	<td>09/02/20</td>	<td>12/31/21</td>	<td>36</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>12</td>	<td>2021</td>	<td>12/01/21</td>	<td></td>	</tr>
+                  <tr>	<td>CELL Press</td>	<td>1700051076</td>	<td>10/27/20</td>	<td>01/01/22</td>	<td>339</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>1</td>	<td>2022</td>	<td>01/01/22</td>	<td></td>	</tr>
+                  <tr>	<td>New Scientist</td>	<td>12353301</td>	<td>12/23/20</td>	<td>01/01/22</td>	<td>159</td>	<td>P&D</td>	<td>Annual</td>	<td>SC Pcard</td>	<td></td>	<td>1</td>	<td>2022</td>	<td>01/01/22</td>	<td></td>	</tr>
+                </table>
+                                 
+             </div>
+             
+       </body>
+   </html>
+  
+  
+   <script>
+     function showJournals()
+     {
+       document.getElementById('Journals').style.display = 'block';
+       document.getElementById('Personal').style.display = 'none';
+       document.getElementById('journals_subscription').style.background = '#51BF95';
+       document.getElementById('journals_subscription').style.color='white';
+       document.getElementById('journals_subscription').style.fontWeight='bold';
+       document.getElementById('personal_subscription').style.background = '';
+       document.getElementById('personal_subscription').style.color='black';
+       document.getElementById('personal_subscription').style.fontWeight='normal';
+       document.getElementById('SubscriptionHeader').innerHTML='Subscriptions - Journals';
+       
+     }
+  
+     function showPersonal()
+     {
+       document.getElementById('Personal').style.display='block';
+       document.getElementById('Journals').style.display = 'none';
+       document.getElementById('personal_subscription').style.background = '#51BF95';
+       document.getElementById('personal_subscription').style.color='white';
+       document.getElementById('personal_subscription').style.fontWeight='bold';
+       document.getElementById('journals_subscription').style.background = '';
+       document.getElementById('journals_subscription').style.color='black';
+       document.getElementById('journals_subscription').style.fontWeight='normal';
+       document.getElementById('SubscriptionHeader').innerHTML='Subscriptions - Personal'
+     }
+   </script>

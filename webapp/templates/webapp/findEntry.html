@@ -1,0 +1,112 @@
+
+<style>
+ .vl {
+  border-left: 6px solid green;
+  height: 500px;
+} 
+</style>
+<html>
+    <head>
+      <title>CASI Find Document</title>
+        <link rel="stylesheet" href="static/style.css">
+      </head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+      <div class='topnav'>
+        <img style='width: 100%;'src='static/asu.png'>
+    </div>
+    <div class="topnav">
+       
+        <a style="font-family: sans-serif;" href='logEntry.html' >Log Entry</a>
+        <a style="font-family: sans-serif;" href='findEntry.html'>Find Entry</a>
+        <a style="font-family: sans-serif;" href='subscriptions.html'>Subscriptions</a>
+        <a style="font-family: sans-serif;"href='preferences.html'>Preferences</a>
+        <a style="font-family: sans-serif;" href='eventHistory.html' >Event History</a>
+        <a style="font-family: sans-serif;" href='https://casi.asu.edu/complex-adaptive-systems-initiative/'>About</a>
+        <div style="margin-top: 9px; float: right;padding-right: 10px;">
+          <label style="font-size:17px;color:white; font-family: sans-serif;">Logged in as </label>
+          <label style="font-size:17px;color:white; font-family: sans-serif; padding-right: 5px;">Prateek</label>
+          <i style="font-size:24px;color: white;" class="fa">&#xf2bd;</i>
+         </div>
+  </div>
+  <h2 id='SubscriptionHeader' style="font-family:sans-serif;font-size: 22px;">Find Entry</h2>
+          <div>
+            
+            <form>
+                <div style="padding-bottom: 20px; padding-top: 25px; width: 500px;padding-left: 15px;">
+                <label style="font-family: sans-serif; font-size: 15px;margin-right: 101px;"  for="directory">Directory:</label>
+                <select style="width: 200px;height:30px; border-radius: 2px;" id="directory" name="directory">
+                    <option value="1">Academic</option>
+                    <option value="2">Alzheimers</option>
+                    <option value="3">Coronavirus</option>
+                    <option value="4">Disaster</option>
+                  </select>
+                  <br>
+                </div>    
+                
+                
+                <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                <label style="font-family: sans-serif; font-size: 15px;margin-right: 76px;" for="subdir">Subdirectory:</label>
+                <select style="width: 200px;height:30px; border-radius: 2px;" id="directory" name="directory">
+                    <option value="1">3P</option>
+                    <option value="2">Africa</option>
+                    <option value="3">Antigen</option>
+                    <option value="4">Biology</option>
+                  </select>
+                  <br>
+                </div>
+                
+                
+                <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                <label style="font-family: sans-serif; font-size: 15px;margin-right: 133px;" for="fname">Title:</label>
+                <input style="width: 200px;height:30px; " type="text" id="fname" name="fname"><br>
+                </div>
+                
+                <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                <label style="font-family: sans-serif; font-size: 15px; margin-right:124px;" for="fname">Issue:</label>
+                <input style="width: 200px;height:30px;" type="text" id="fname" name="fname"><br>
+                </div>
+                
+                <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                <label style="font-family: sans-serif; font-size: 15px;margin-right:109px;" for="fname">Volume:</label>
+                <input style="width: 200px;height:30px;" type="text" id="fname" name="fname"><br>
+                </div>    
+                
+                <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                <label style="font-family: sans-serif; font-size: 15px; margin-right: 56px;" for="fname">Published Date:</label>
+                <input type="date" style="font-family:sans-serif;width: 200px;height:30px;" type="text" id="date" name="date"><br>
+                </div>
+                
+                <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                <label style="font-family: sans-serif; font-size: 15px;margin-right: 53px;" for="fname">Document Type:</label>
+                <input style="width: 200px;height:30px;" type="text" id="fname" name="fname"><br>
+                </div>        
+                <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                <label style="font-family: sans-serif; font-size: 15px; margin-right: 90px;" for="worker">Posted By:</label>
+                <select style="width: 200px;height:30px;border-radius: 2px;" id="worker" name="worker">
+                    <option value="0">Anyone</option>
+                    <option value="1">Stephanie Calderone</option>
+                    <option value="2">April Johnson</option>
+                    <option value="3">Ankita Patel</option>
+                    <option value="4">Shyam</option>
+                  </select>
+                </div>        
+                
+                <div style='padding-left: 280px;'>
+                <input style="width: 100px;
+                height: 32px;
+                background: #51BF95;
+                color: white;
+                border-radius: 3px;
+                border: 0px;
+                cursor: pointer;
+                font-size: 15px;" type="submit" value="Search">
+              </div>
+              
+              </form>
+              
+          </div>
+          
+    </body>
+</html>

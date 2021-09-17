@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>CAS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    {% load static %} 
+    <script src="{% static 'webapp/js/helper.js' %}"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'webapp/login_style.css' %}">     
+   </head>
+  <body>
+   
+    <div class="login_form_style" id="login_form">
+      <div style="height: 100px;" id="img">
+        {% load static %}
+        <img style="width: 100%;" src="{% static 'webapp/login_header.svg' %}">
+      </div>
+      <div style="padding-top: 20%;padding-left: 12%;" id="email_div">
+        <label class="label_style">Email ID</label>
+        <input class="email_pw_textbox" id="email" type="text">
+      </div>
+      <div style="padding-top: 10px;padding-left: 9%;" id="pw_div">
+        <label class="label_style">Password</label>
+        <input class="email_pw_textbox" id="password" type="password">
+      </div>
+      <div style="padding-top: 30px;padding-left: 56%;padding-bottom: 10px;" >
+        <input class="submit_style" type="button" onclick="try_login()" value="Sign in">
+      </div>
+      <a class="frgt_pw" href='forgotPassword'>Forgot Password?</a>
+     <div>
+      <label id="incorrect_login" class="incorrect_login" style="display: none;" id="deny">Email or Password is incorrect.</label>
+    </div>
+    </div>
+      
+      
+    
+  </body>
+</html>
+
+<script>
+  function try_login()
+  {
+    email = $("#email")[0].value;
+    password = $("#password")[0].value;
+    data = {"email":email,"password":password}
+
+    login(data);
+  }
+  
+</script>

@@ -1,0 +1,61 @@
+.float-container {
+  height: 50px;
+  background-color: #353535;
+}
+
+.float-child {
+  padding-left: 20px;
+  float: left;
+  padding-top: 15px;
+  height: 70%;
+  padding-right: 20px;
+  cursor: pointer;
+}  
+
+.float-child:hover{
+  background-color:#FFC627;
+}  
+
+.anchor_class{
+font-family: sans-serif;
+text-decoration: none;
+color:#ffffff;
+font-weight: bold;
+}
+
+.anchor_class:hover
+{
+color: white;
+}
+
+.save_btn_style
+{
+ width: 100px;
+ height: 32px;
+ background: #8D1D3F;
+  color: white;
+  border-radius: 3px;
+  border: 0px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.save_btn_style:hover
+{
+  cursor: pointer;
+  background-color:  #b83e5e;
+}
+
+.search_btn_style
+{width: 60px;
+  height: 30px;
+  background: #8D1D3F;
+  color: white;
+  border-radius: 3px;
+  border: 0px;
+  cursor: pointer;
+  font-size: 14px;}
+  .search_btn_style:hover
+  {
+    cursor: pointer;
+  background-color:  #b83e5e;
+  }

@@ -1,0 +1,276 @@
+
+
+   <style>
+  
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   
+   <html>
+       <head>
+        {% load static %} 
+        <script> 
+          $(function(){
+            $("#header_links").load("links"); 
+          });
+          </script> 
+        {% load static %} 
+        <script src="{% static 'webapp/js/helper.js' %}"></script>
+        {% load static %} 
+        <link rel="stylesheet" href="{% static 'webapp/style.css' %}">
+        {% load static %} 
+        <link rel="stylesheet" href="{% static 'webapp/preferences_style.css' %}">
+         </head>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <body style="margin: 0px !important;">
+        <div>
+          <div>
+              {% load static %}
+              <img class="header_img" src="{% static 'webapp/ASU.svg' %}">
+          </div>
+         <div class="float-container"> 
+          <div id='header_links'></div>
+          </div>
+       
+     <div style='padding-top: 20px; padding-left: 20px; width: 500px;'>
+        
+        <div style="padding-bottom: 20px;">
+            <label style="font-family: sans-serif;margin-right: 80px;">Add new user:</label>
+            <input style="width: 200px;height:30px;" type="text" id="fname" name="fname">
+            <input style="width: 100px;
+            height: 32px;
+            background: #51BF95;
+            color: white;
+            border-radius: 3px;
+            border: 0px;
+            cursor: pointer;
+            float:right;
+            font-size: 15px;" type='submit' value='Add'>
+        </div>
+        <div style="padding-bottom: 20px; width: 500px;">
+            <label style="font-family: sans-serif; margin-right: 63px;">Add new journal:</label>
+            <input style="width: 200px;height:30px;" type="text" id="fname" name="fname">
+            <input style="width: 100px;
+            height: 32px;
+            background: #51BF95;
+            color: white;
+            border-radius: 3px;
+            border: 0px;
+            cursor: pointer;float:right;
+            
+            font-size: 15px;" type='submit' value='Add'>
+        </div>
+        
+        <div style="padding-bottom: 30px; width: 500px;">
+            <label style="font-family: sans-serif;">Add Journal Subscription:</label>
+            <input id='btn_add_subscription' onclick="openDialog('btn_add_subscription')" style="width: 100px;
+            height: 32px;
+            background: #51BF95;
+            color: white;
+            border-radius: 3px;
+            border: 0px;
+            cursor: pointer;
+            float:right;
+            font-size: 15px;" type='button' value='Add'>
+        </div>
+        <div style="padding-bottom: 30px; width: 500px;">
+            <label style="font-family: sans-serif;">Edit Journal Subscription:</label>
+            <input id='btn_edit_subscription' style="width: 100px;
+            height: 32px;
+            background: #51BF95;
+            color: white;
+            border-radius: 3px;
+            border: 0px;
+            cursor: pointer;
+            float:right;
+            font-size: 15px;" type='submit' value='Edit'>
+            
+        </div>
+        <div style="padding-bottom: 30px; width: 500px;">
+            <label style="font-family: sans-serif;">Add Personal Subscription:</label>
+            <input style="width: 100px;
+            height: 32px;
+            background: #51BF95;
+            color: white;
+            border-radius: 3px;
+            border: 0px;
+            cursor: pointer;
+            float:right;
+            font-size: 15px;" type='submit' value='Add'>
+        </div>
+        <div style="padding-bottom: 30px; width: 500px;">
+            <label style="font-family: sans-serif;">Edit Personal Subscription:</label>
+            <input style="width: 100px;
+            height: 32px;
+            background: #51BF95;
+            color: white;
+            border-radius: 3px;
+            border: 0px;
+            cursor: pointer;
+            
+            font-size: 15px;float:right;" type='submit' value='Edit'>
+            
+        </div>
+        
+    
+    </div>
+    <!-- The Modal -->
+<div id = "edit_journal_modal" class="modal">
+  <div class="modal-content">
+    <span style="font-family: sans-serif; font-size: 17px; font-weight: bold;">Edit journal subscription</span>
+    <span class="close" style="width:20px;">&times;</span>
+    <div style='padding-top: 70px; padding-bottom: 40px;'>
+      <div>
+      <label style="font-family: sans-serif; font-size: 15px;margin-right: 101px;"  for="select_journal">Journal:</label>
+      <select style="width: 200px;height:30px; border-radius: 2px;" id="select_journal" name="select_journal">
+      </select>
+    </div>
+      <br>
+
+      <label style="font-family: sans-serif;">Journal Name:</label>
+      <input id='edit_journal_name' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+      <label style="font-family: sans-serif;">Website Address:</label>
+      <input id='edit_journal_web_addr' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+      <label style="font-family: sans-serif;">Login ID:</label>
+      <input id='edit_journal_login_id' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+      <label style="font-family: sans-serif;">Password:</label>
+      <input id='edit_journal_pw' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+      <label style="font-family: sans-serif;">Account#:</label>
+      <input id = 'edit_journal_ac_no' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+      <label style="font-family: sans-serif;">Notes:</label>
+      <input id='edit_journal_notes' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+      
+      <input style="width: 100px;
+      height: 32px;
+      background: #51BF95;
+      color: white;
+      border-radius: 3px;
+      border: 0px;
+      cursor: pointer;
+      float:right;
+      font-size: 15px;" type="submit" onclick="editJournalSubscriptionRecord()" value='Submit'>
+  </div>
+
+  </div>
+</div>
+<div id="add_new_journal_modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span style="font-family: sans-serif; font-size: 17px; font-weight: bold;">Add journal subscription</span>
+      <span class="close" style="width:20px;">&times;</span>
+      <div style='padding-top: 70px; padding-bottom: 40px;'>
+          <label style="font-family: sans-serif;">Journal Name:</label>
+          
+          <input id='add_new_journal_name' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+          <label style="font-family: sans-serif;">Website Address:</label>
+          <input id='add_new_journal_web_addr' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+          <label style="font-family: sans-serif;">Login ID:</label>
+          <input id='add_new_journal_login_id' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+          <label style="font-family: sans-serif;">Password:</label>
+          <input id='add_new_journal_pw' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+          <label style="font-family: sans-serif;">Account#:</label>
+          <input id = 'add_new_journal_ac_no' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+          <label style="font-family: sans-serif;">Notes:</label>
+          <input id='add_new_journal_notes' type='text' style="float:right; font-family: sans-serif; width: 200px;"><br><br>
+          <input style="width: 100px;
+          height: 32px;
+          background: #51BF95;
+          color: white;
+          border-radius: 3px;
+          border: 0px;
+          cursor: pointer;
+          float:right;
+          font-size: 15px;" type="submit" onclick="saveJournalSubscriptionRecord()" value='Submit'>
+      </div>
+    </div>
+  
+  </div>
+            
+       </body>
+   </html>
+  
+  
+   <script>
+     $(document).ready(function() {
+    
+    var add_new_subscription_btn = document.getElementById("btn_add_subscription");
+    var add_new_subscription_modal = document.getElementById("add_new_journal_modal");
+    var add_new_subscription_span = document.getElementsByClassName("close")[0];
+
+    var edit_subscription_btn = document.getElementById("btn_edit_subscription");
+    var edit_subscription_modal = document.getElementById("edit_journal_modal");
+    var edit_subscription_span = document.getElementsByClassName("close")[0];
+    add_new_subscription_btn.onclick = function() {
+      add_new_subscription_modal.style.display = "block";
+  }
+  add_new_subscription_span.onclick = function() {
+    add_new_subscription_modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+    if (event.target == add_new_subscription_modal) {
+      add_new_subscription_modal.style.display = "none";
+  }
+  if (event.target == edit_subscription_modal) {
+      edit_subscription_modal.style.display = "none";
+  }
+  }
+
+  edit_subscription_btn.onclick = function() {
+    getEditSubscriptionRecords();
+    
+  }
+  edit_subscription_span.onclick = function() {
+    edit_subscription_modal.style.display = "none";
+  }
+  
+
+  });
+
+function saveJournalSubscriptionRecord()
+{
+        jname =   $("#add_new_journal_name")[0].value
+        jaddr =  $("#add_new_journal_web_addr")[0].value
+        jid =  $("#add_new_journal_login_id")[0].value
+        jpw=  $("#add_new_journal_pw")[0].value
+        jacno = $("#add_new_journal_ac_no")[0].value
+        jnotes=  $("#add_new_journal_notes")[0].value
+
+        json_data = {"journal_name":jname,"journal_web_addr":jaddr,"journal_subscription_id":jid,"journal_subscription_pw":jpw,"journal_subscription_ac":jacno,"journal_notes":jnotes}
+        addNewPaidSubscription(json_data)
+}
+
+function editJournalSubscriptionRecord()
+{
+        j_id = selected_journal_for_edit;
+        jname =   $("#edit_journal_name")[0].value
+        jaddr =  $("#edit_journal_web_addr")[0].value
+        jid =  $("#edit_journal_login_id")[0].value
+        jpw=  $("#edit_journal_pw")[0].value
+        jacno = $("#edit_journal_ac_no")[0].value
+        jnotes=  $("#edit_journal_notes")[0].value
+        json_data = {"journal_id":j_id, "journal_name":jname,"journal_web_addr":jaddr,"journal_subscription_id":jid,"journal_subscription_pw":jpw,"journal_subscription_ac":jacno,"journal_notes":jnotes}
+        editPaidSubscription(json_data)
+   //change to dropdown value later
+}
+
+// Get the button that opens the modal
+
+
+
+   </script>

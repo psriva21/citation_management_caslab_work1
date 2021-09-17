@@ -1,0 +1,198 @@
+
+<style>
+  input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    width: 80px;
+ height: 16px;
+ background: #8D1D3F;
+  color: white;
+  border-radius: 3px;
+  border: 0px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.body_style
+{
+  margin: 0px;
+}
+.header_img
+{
+  max-width: 100%;
+  max-height: 100%;
+}
+.btn_style{
+  width: 160px;
+  height: 30px;
+  background: #8D1D3F;
+   color: white;
+   border-radius: 3px;
+  border: 0px;
+  cursor: pointer;
+  font-size: 14px;
+}
+ </style>
+  
+   <html>
+       <head>
+        <title>CASI Log Journal</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        {% load static %}
+        <script src="{% static 'webapp/js/file_upload.js' %}"></script>     
+        {% load static %} 
+        <script src="{% static 'webapp/js/helper.js' %}"></script>     
+        {% load static %} 
+        <script> 
+        $(function(){
+          $("#header_links").load("links"); 
+        });
+        </script> 
+        {% load static %} 
+        <link rel="stylesheet" href="{% static 'webapp/style.css' %}">
+       </head>
+     
+       <body class="body_style">
+      <div>
+
+        <div>
+            {% load static %}
+            <img class="header_img" src="{% static 'webapp/ASU.svg' %}">
+            
+       </div>
+       <div class="float-container"> 
+        <div id="header_links"></div>
+        </div>
+      </div>
+       <div>
+     <div id='page_label' style="margin-top: 10px;">   
+     <label id='SubscriptionHeader' style="font-family:sans-serif;font-size: 18px;margin-left: 15px;">Log New Entry</label>
+    </div>     
+     <div id='form_body' style='margin-left: 15px;'>
+               
+               <form style="padding-top:10px;">
+                 <div>
+                   <label style="font-family: sans-serif; font-size: 15px;margin-right: 136px;">File: </label>
+                   <label class="custom-file-upload" style="font-family: sans-serif; font-size: 15px;" for="file_upload">Select File</label>
+                   <input class="" style="padding-left: 10px;" type="file" id="file_upload" value="Select File">
+                   <label id="file_name"></label>
+                  
+                 </div>
+                </div>
+                
+                   <div style="padding-bottom: 20px; padding-top: 10px; width: 500px;padding-left: 15px;">
+                   <label style="font-family: sans-serif; font-size: 15px;margin-right: 101px;"  for="directory">Directory:</label>
+                   <select class="js-example-basic-single" style="width: 200px;height:30px; border-radius: 2px;" id="directory" name="directory">
+                     </select>
+                     <br>
+                   </div>    
+                   
+                   
+                   <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                   <label style="font-family: sans-serif; font-size: 15px;margin-right: 76px;" for="subdir">Subdirectory:</label>
+                   <select class="js-example-basic-single" style="width: 200px;height:30px; border-radius: 2px;" id="sub_directory" name="sub_directory">
+        
+                     </select>
+                     <br>
+                   </div>
+
+                   <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                    <label style="font-family: sans-serif; font-size: 15px; margin-right: 40px;" for="metadata_fetch">Document Source:</label>
+                    <select style="width: 200px;height:30px;border-radius: 2px;" id="metadata_fetch" name="metadata_fetch">
+                        <option value="0">PMC</option>
+                        <option value="1">DOI</option>
+                      </select>
+                    </div>   
+                   <div id="pmcid_div" style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                    <label style="font-family: sans-serif; font-size: 15px;margin-right: 111px;" for="fname">PMCID:</label>
+                    <input style="width: 140px;height:30px; " type="text" id="PubMedID" name="PubMedID">
+                    <input type="button" class="search_btn_style" onclick="GetPubMedInfo()" value="Search">
+                   </div>
+
+                   <div id="doi_div" style="display: none; padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                    <label style="font-family: sans-serif; font-size: 15px;margin-right: 132px;" for="doi">DOI:</label>
+                    <input style="width: 140px;height:30px; " type="text" id="doi" name="doi">
+                    <input class="search_btn_style" style="padding-left:6px" onclick="getMetaDataFromDOI()" value="Search">
+                   </div>
+
+                   <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                   <label style="font-family: sans-serif; font-size: 15px;margin-right: 133px;" for="fname">Title:</label>
+                   <input style="width: 200px;height:30px; " type="text" id="journal_title" name="journal_title"><br>
+                   </div>
+                   
+                   <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                    <label style="font-family: sans-serif; font-size: 15px;margin-right:109px;" for="fname">Volume:</label>
+                    <input style="width: 200px;height:30px;" type="text" id="journal_volume" name="journal_volume"><br>
+                    </div>
+                   <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                   <label style="font-family: sans-serif; font-size: 15px; margin-right:124px;" for="fname">Issue:</label>
+                   <input style="width: 200px;height:30px;" type="text" id="journal_issue" name="journal_issue"><br>
+                   </div>
+                   
+                       
+                   
+                   <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                   <label style="font-family: sans-serif; font-size: 15px; margin-right: 56px;" for="fname">Published Date:</label>
+                   <input type="date" timezone="[[timezone]]" style="font-family:sans-serif;width: 200px;height:30px;" type="text" id="journal_published_date" name="journal_published_date"><br>
+                   </div>
+                   
+                   <div style="padding-bottom: 20px;width: 500px;padding-left: 15px;">
+                   <label style="font-family: sans-serif; font-size: 15px;margin-right: 53px;" for="journal_document_type">Document Type:</label>
+                   <select style="width: 200px;height:30px;" type="text" id="journal_document_type" name="journal_document_type">
+                    <option value='J'>Journal Article</option>  
+                    <option value='W'>Web Article</option>
+                    <option value='GPN'>GP Notes</option>
+                    <option value='H'>Hardcopy</option>
+                  </select>
+                    <br>
+                   </div>        
+                   
+                   <div style='padding-left: 280px;'>
+                   <input class="save_btn_style" type="button" onclick="create_form()" value="Save">
+                 </div>
+                 
+               </form>
+                 
+     </div>
+             
+       
+   
+  </body>
+   </html>
+  
+   <script>
+    $(document).ready(function() 
+    {
+      //alert('welcome '+document.cookie.split("=")[1]);
+      $('.js-example-basic-single').select2();
+         getRootDirectories();
+         getUsers();
+         $('#directory').on('change', function() {
+          selected_val = this.options.selectedIndex;
+          directory_name = this.options[selected_val].innerHTML;
+          getSubDirectories(directory_name);
+        });
+
+        $('#metadata_fetch').on('change', function() 
+        {
+          if(this.options.selectedIndex==0)
+          {
+            $("#doi_div").hide();
+            $("#pmcid_div").show();
+          }
+          else if(this.options.selectedIndex==1)
+          {
+            $("#pmcid_div").hide();
+            $("#doi_div").show();
+          }
+          
+        });
+        
+     });
+   </script>
